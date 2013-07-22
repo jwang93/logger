@@ -14,22 +14,21 @@ import java.nio.channels.FileChannel;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 /**
- * <b>Appian Secretary</b> - manage file saving and loading <br><br>
- * Also has other functionality such as writing to a file, counting lines in a file, removing lines
- * from a file <br>
- * <b>Functions:<b>
+ * <b>Appian Secretary</b>: manage file saving and loading <br>
+ * Functionality includes writing to a file, counting lines in a file, removing lines
+ * from a file <br><br>
+ * <b>Methods:<b>
  * <li>write(String value) --> allows you to write value to a session file</li>
  * <li>count(String fileName, String patternToMatch) --> allows you to count how many lines match a
  * given regex pattern</li>
- * <ul>remove(String fileName, String remove) --> allows you to remove String remove from a file </ul>
- * <ul>saveSession(String fileName) --> allows you to save a session file onto your disk</ul>
- * <ul>loadSession(String filename, String methodName, Object object) --> allows you to load a file from
- * your disk into your machine and perform</ul>
- * <ul>loadSession(String fileName, Invokeable object) --> allows you to pass in an anonymous function that 
- * implements invoke however you like</ul>
- * whatever method you want on it (that method must take a String as parameter).
+ * <li>remove(String fileName, String remove) --> allows you to remove String remove from a file </li>
+ * <li>saveSession(String fileName) --> allows you to save a session file onto your disk</li>
+ * <li>loadSession(String filename, String methodName, Object object) --> allows you to load a file from
+ * your disk into your machine and perform</li>
+ * <li>loadSession(String fileName, Invokeable object) --> allows you to pass in an anonymous function that 
+ * implements invoke however you like</li>
+ * whatever method you want on it (that method must take a String as parameter). <br><br>
  * 
  * @author Jay Wang
  */
@@ -68,7 +67,7 @@ public class AppianSecretary {
      * This will save the session.txt file into a file called fileName and save
      * that file in src/Files.
      * 
-     * @param String fileName - name of the file (i.e. Example1.txt)
+     * @param fileName (String) - name of the file (i.e. Example1.txt)
      * @throws IOException
      */
     public void saveSession (String fileName) throws IOException {
@@ -85,9 +84,9 @@ public class AppianSecretary {
      * The user can decide what to do which each line of the file:
      * parse it, print it to console, etc...
      * 
-     * @param String fileName - name of the file (i.e. Example1.txt)
-     * @param String methodName - the name of the method you want to invoke on the line
-     * @param Object object - the class that has the method you want to invoke
+     * @param fileName (String) - name of the file (i.e. Example1.txt)
+     * @param methodName (String) - the name of the method you want to invoke on the line
+     * @param object (Object) - the class that has the method you want to invoke
      * @throws NoSuchMethodException
      * @throws SecurityException
      * @throws InvocationTargetException
@@ -200,7 +199,6 @@ public class AppianSecretary {
         reader.close();
         save(TMP_FILE, fileName);
         new File(FILE_PATH + TMP_FILE).delete();
-
     }
 
     /*
@@ -221,7 +219,7 @@ public class AppianSecretary {
         if (targetChannel != null) {
             targetChannel.close();
         }
-
+        copy.deleteOnExit();
     }
 
     private void write (FileWriter writer, String string) throws IOException {
