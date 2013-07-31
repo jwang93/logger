@@ -43,7 +43,7 @@ public class AppianLogger {
     private static final String TMP_FILE = "tmp.txt";
 
     /**
-     * To instantiate a Secretary, you need to feed the constructor two strings
+     * To instantiate a Logger, you need to feed the constructor two strings
      * String directory - the path of the directory where you want the generated file to be saved
      * String fileName - the name you want your file to be
      * 
